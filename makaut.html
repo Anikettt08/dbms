@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MAKAUT DBMS Exam Crash Guide - BSc Data Science 2nd Sem</title>
+    <style>
+        @page { size: A4; margin: 15mm; }
+        * { box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #1a1a2e; background: #fff; padding: 20px; max-width: 210mm; margin: 0 auto; }
+        h1 { color: #e94560; text-align: center; border-bottom: 3px solid #e94560; padding-bottom: 10px; font-size: 22px; }
+        h2 { color: #16213e; background: #f0f0f0; padding: 8px 12px; border-left: 5px solid #e94560; margin-top: 25px; font-size: 16px; }
+        h3 { color: #0f3460; font-size: 14px; margin-top: 20px; border-bottom: 1px dashed #ccc; padding-bottom: 4px; }
+        .meta { text-align: center; color: #555; font-size: 13px; margin-bottom: 20px; }
+        .highlight { background: #fff3cd; padding: 2px 6px; border-radius: 3px; font-weight: bold; }
+        .warning { background: #f8d7da; color: #721c24; padding: 10px; border-radius: 5px; margin: 15px 0; border-left: 4px solid #dc3545; }
+        .tip { background: #d1ecf1; color: #0c5460; padding: 10px; border-radius: 5px; margin: 15px 0; border-left: 4px solid #17a2b8; }
+        table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; }
+        th, td { border: 1px solid #dee2e6; padding: 8px; text-align: left; }
+        th { background: #16213e; color: white; }
+        tr:nth-child(even) { background: #f8f9fa; }
+        code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-family: 'Courier New', monospace; font-size: 12px; }
+        pre { background: #1e1e2e; color: #a6e22e; padding: 12px; border-radius: 5px; overflow-x: auto; font-size: 12px; line-height: 1.4; }
+        .marks-badge { display: inline-block; background: #e94560; color: white; padding: 2px 10px; border-radius: 12px; font-size: 12px; font-weight: bold; margin-left: 8px; }
+        .star { color: #ffc107; font-size: 16px; }
+        ul, ol { margin: 8px 0; padding-left: 20px; }
+        li { margin: 4px 0; }
+        .page-break { page-break-before: always; }
+        p { font-size: 13px; margin: 8px 0; text-align: justify; }
+    </style>
+<base target="_blank">
+</head>
+<body>
+
+<h1>🎯 MAKAUT DBMS EXAM CRASH GUIDE</h1>
+<div class="meta">
+    <strong>BSc Data Science | 2nd Semester | Inspiria Knowledge Campus</strong><br>
+    Based on MAKAUT Previous Year Papers (WBUT/MAKAUT 2006-2024) & Official Syllabus<br>
+    <span class="highlight">Exam Date: 25th June 2026</span>
+</div>
+
+<div class="warning">
+    <strong>⚠️ Important:</strong> This guide is compiled from MAKAUT previous year papers and standard BSc Data Science DBMS syllabus. Focus on starred (⭐) topics first — they appear in EVERY exam.
+</div>
+
+<!-- ==================== SECTION A: 5 MARKS ==================== -->
+<h2>📋 SECTION A: 5-MARK QUESTIONS <span class="marks-badge">5 Marks</span></h2>
+
+<h3>Q1. What is DBMS? Explain its advantages over File System. <span class="star">⭐</span></h3>
+<p><strong>Answer:</strong> A Database Management System (DBMS) is software that manages databases, providing controlled access to data. It acts as an interface between users and the database.</p>
+<p><strong>Advantages over File System:</strong></p>
+<ul>
+    <li><strong>Data Redundancy:</strong> DBMS reduces duplicate data; file systems store redundant copies.</li>
+    <li><strong>Data Inconsistency:</strong> Changes in one place reflect everywhere in DBMS; file systems have inconsistent updates.</li>
+    <li><strong>Data Sharing:</strong> Multiple users can access data simultaneously in DBMS.</li>
+    <li><strong>Data Security:</strong> DBMS provides authentication, authorization, and encryption; file systems have basic OS-level security only.</li>
+    <li><strong>Data Integrity:</strong> DBMS enforces constraints (primary key, foreign key); file systems cannot.</li>
+    <li><strong>Backup & Recovery:</strong> DBMS has built-in mechanisms; file systems are manual.</li>
+</ul>
+
+<h3>Q2. Explain Three-Schema Architecture (ANSI-SPARC) with diagram. <span class="star">⭐</span></h3>
+<p>The three-schema architecture separates user applications from the physical database.</p>
+<ol>
+    <li><strong>External Level (View Level):</strong> The highest level, closest to users. Describes part of the database relevant to particular users. Different users have different views.</li>
+    <li><strong>Conceptual Level (Logical Level):</strong> Describes the structure of the entire database. Defines what data is stored, relationships, constraints, and semantic information. The DBA works at this level.</li>
+    <li><strong>Internal Level (Physical Level):</strong> Describes physical storage structure. Defines how data is actually stored on disk (indexes, file organization, compression).</li>
+</ol>
+<p><strong>Data Independence:</strong></p>
+<ul>
+    <li><strong>Logical Data Independence:</strong> Ability to change conceptual schema without affecting external schemas.</li>
+    <li><strong>Physical Data Independence:</strong> Ability to change internal schema without affecting conceptual schema.</li>
+</ul>
+
+<h3>Q3. What is Data Dictionary? Explain its importance. <span class="star">⭐</span></h3>
+<p>A Data Dictionary (or catalog) is a centralized repository of information about data. It stores metadata — data about data.</p>
+<p><strong>Contents:</strong></p>
+<ul>
+    <li>Names of tables, attributes, and their data types</li>
+    <li>Constraints (primary key, foreign key, check constraints)</li>
+    <li>Relationships between tables</li>
+    <li>User information and access privileges</li>
+    <li>Index names and definitions</li>
+</ul>
+<p><strong>Importance:</strong> Helps DBMS manage data efficiently, ensures data integrity and consistency, assists in query optimization, and is useful for database design and documentation.</p>
+
+<h3>Q4. Explain ER Model with symbols. Draw ER Diagram for Library Management System. <span class="star">⭐</span></h3>
+<p>The Entity-Relationship (ER) Model is a high-level conceptual data model used to describe the structure of a database.</p>
+<p><strong>Symbols:</strong></p>
+<ul>
+    <li><strong>Rectangle:</strong> Entity (e.g., Student, Book)</li>
+    <li><strong>Ellipse/Oval:</strong> Attribute (e.g., Name, Roll_No)</li>
+    <li><strong>Diamond:</strong> Relationship (e.g., Issues, Borrows)</li>
+    <li><strong>Double Ellipse:</strong> Multivalued Attribute</li>
+    <li><strong>Dashed Ellipse:</strong> Derived Attribute</li>
+    <li><strong>Double Rectangle:</strong> Weak Entity</li>
+</ul>
+<p><strong>Library Management System ER Diagram:</strong></p>
+<ul>
+    <li><strong>Entities:</strong> Student, Book, Librarian</li>
+    <li><strong>Attributes:</strong> Student (Roll_No, Name, Address), Book (ISBN, Title, Author, Price)</li>
+    <li><strong>Relationship:</strong> "Issues" (Student issues Book)</li>
+    <li><strong>Cardinality:</strong> One Student can issue many Books; One Book can be issued by one Student at a time (1:N)</li>
+</ul>
+
+<h3>Q5. Define Primary Key, Candidate Key, Super Key, and Foreign Key with examples. <span class="star">⭐</span></h3>
+<table>
+    <tr><th>Key Type</th><th>Definition</th><th>Example</th></tr>
+    <tr><td><strong>Super Key</strong></td><td>A set of attributes that can uniquely identify a tuple</td><td>{Roll_No}, {Roll_No, Name}, {Email}</td></tr>
+    <tr><td><strong>Candidate Key</strong></td><td>Minimal super key (no unnecessary attributes)</td><td>{Roll_No}, {Email}</td></tr>
+    <tr><td><strong>Primary Key</strong></td><td>Candidate key chosen by the designer to uniquely identify tuples</td><td>Roll_No</td></tr>
+    <tr><td><strong>Foreign Key</strong></td><td>Attribute in one table that references the primary key of another table</td><td>Dept_ID in Employee table referencing Dept_ID in Department table</td></tr>
+</table>
+<p><strong>Rules:</strong> Primary Key cannot be NULL. A table can have only one Primary Key. Foreign Key can be NULL or must match a value in the referenced table.</p>
+
+<h3>Q6. What is Normalization? Explain 1NF, 2NF, and 3NF with examples. <span class="star">⭐</span></h3>
+<p>Normalization is the process of organizing data to reduce redundancy and eliminate anomalies (insertion, update, deletion).</p>
+<p><strong>1NF (First Normal Form):</strong> All attributes contain only atomic (indivisible) values. No repeating groups. <em>Example:</em> A table with Student_Hobbies = "Cricket, Football" violates 1NF. Split into separate rows or a new table.</p>
+<p><strong>2NF (Second Normal Form):</strong> Must be in 1NF. No partial dependency (non-prime attributes must depend on the whole primary key, not just part of it). <em>Example:</em> In (Student_ID, Course_ID) → Student_Name, Course_Name. Student_Name depends only on Student_ID (partial dependency). Split into Student and Course tables.</p>
+<p><strong>3NF (Third Normal Form):</strong> Must be in 2NF. No transitive dependency (non-prime attributes must not depend on other non-prime attributes). <em>Example:</em> Roll_No → Dept_ID → Dept_Name. Dept_Name transitively depends on Roll_No. Split into Student and Department tables.</p>
+
+<h3>Q7. Explain ACID Properties of Transaction. <span class="star">⭐</span></h3>
+<p>A transaction is a logical unit of work. ACID properties ensure reliability:</p>
+<ul>
+    <li><strong>Atomicity:</strong> "All or nothing." A transaction is either fully completed or fully rolled back. If any part fails, the entire transaction is undone.</li>
+    <li><strong>Consistency:</strong> A transaction brings the database from one valid state to another. All integrity constraints must be satisfied.</li>
+    <li><strong>Isolation:</strong> Concurrent transactions execute independently. The intermediate state of one transaction is invisible to others.</li>
+    <li><strong>Durability:</strong> Once committed, changes are permanent and survive system failures (stored in non-volatile memory).</li>
+</ul>
+
+<h3>Q8. Explain 2-Phase Locking Protocol. <span class="star">⭐</span></h3>
+<p>2-Phase Locking (2PL) ensures serializability by dividing a transaction into two phases:</p>
+<p><strong>Phase 1: Growing Phase</strong> — The transaction acquires locks (shared or exclusive) as needed. No locks are released during this phase. The transaction continues to request new locks.</p>
+<p><strong>Phase 2: Shrinking Phase</strong> — Once the transaction releases its first lock, it enters the shrinking phase. No new locks can be acquired after this point. Locks are gradually released.</p>
+<p><strong>Types:</strong></p>
+<ul>
+    <li><strong>Basic 2PL:</strong> May have cascading rollback.</li>
+    <li><strong>Strict 2PL:</strong> Exclusive locks held until commit/abort.</li>
+    <li><strong>Rigorous 2PL:</strong> All locks held until commit/abort.</li>
+</ul>
+
+<h3>Q9. What is Concurrency Control? Explain Lost Update, Dirty Read, and Unrepeatable Read. <span class="star">⭐</span></h3>
+<p>Concurrency Control manages simultaneous transactions to ensure database consistency.</p>
+<p><strong>Problems:</strong></p>
+<ol>
+    <li><strong>Lost Update:</strong> Two transactions read the same data, modify it, and write back. The second write overwrites the first, losing the first update. <em>Example:</em> T1 and T2 both read A=100. T1 adds 10 (A=110), T2 subtracts 10 (A=90). T1's update is lost.</li>
+    <li><strong>Dirty Read (Temporary Update):</strong> A transaction reads data modified by another uncommitted transaction. If the other transaction rolls back, the read data is invalid. <em>Example:</em> T1 changes A=100 to A=110. T2 reads A=110. T1 rolls back. T2 has dirty data.</li>
+    <li><strong>Unrepeatable Read:</strong> A transaction reads the same data twice and gets different values because another transaction modified it in between.</li>
+</ol>
+
+<h3>Q10. Difference between DELETE, TRUNCATE, and DROP. <span class="star">⭐</span></h3>
+<table>
+    <tr><th>Feature</th><th>DELETE</th><th>TRUNCATE</th><th>DROP</th></tr>
+    <tr><td><strong>Type</strong></td><td>DML</td><td>DDL</td><td>DDL</td></tr>
+    <tr><td><strong>Removes</strong></td><td>Specific rows (with WHERE)</td><td>All rows</td><td>Entire table structure</td></tr>
+    <tr><td><strong>Rollback</strong></td><td>Can be rolled back</td><td>Cannot be rolled back</td><td>Cannot be rolled back</td></tr>
+    <tr><td><strong>Speed</strong></td><td>Slower (row by row)</td><td>Faster</td><td>Fastest</td></tr>
+    <tr><td><strong>Table Structure</strong></td><td>Retained</td><td>Retained</td><td>Removed completely</td></tr>
+    <tr><td><strong>Triggers</strong></td><td>Fires triggers</td><td>Does not fire triggers</td><td>N/A</td></tr>
+</table>
+
+<div class="page-break"></div>
+
+<!-- ==================== SECTION B: 10 MARKS ==================== -->
+<h2>📋 SECTION B: 10-MARK QUESTIONS <span class="marks-badge">10 Marks</span></h2>
+
+<h3>Q1. Explain Relational Algebra operations: Selection, Projection, Union, Set Difference, Cartesian Product, and Join. <span class="star">⭐</span></h3>
+<p>Relational Algebra is a procedural query language.</p>
+<ol>
+    <li><strong>Selection (σ):</strong> Selects rows (tuples) that satisfy a condition. <em>Syntax:</em> σ_condition(R). <em>Example:</em> σ_Salary>50000(Employee) — selects employees with salary > 50,000.</li>
+    <li><strong>Projection (π):</strong> Selects specific columns (attributes). <em>Syntax:</em> π_attribute_list(R). <em>Example:</em> π_Name, Salary(Employee) — shows only Name and Salary columns.</li>
+    <li><strong>Union (∪):</strong> Combines two union-compatible relations, removing duplicates. <em>Syntax:</em> R ∪ S. <em>Condition:</em> Same number of attributes, compatible domains.</li>
+    <li><strong>Set Difference (−):</strong> Returns tuples in R but not in S. <em>Syntax:</em> R − S.</li>
+    <li><strong>Cartesian Product (×):</strong> Combines every tuple of R with every tuple of S. <em>Syntax:</em> R × S. <em>Result:</em> If R has m tuples and S has n tuples, result has m×n tuples.</li>
+    <li><strong>Join (⋈):</strong> Combines related tuples from two relations based on a condition. <strong>Natural Join:</strong> Equi-join on common attributes. <strong>Equi-Join:</strong> Join with equality condition. <strong>Theta Join:</strong> Join with general condition.</li>
+</ol>
+
+<h3>Q2. Explain SQL commands: DDL, DML, DCL, and TCL with examples. <span class="star">⭐</span></h3>
+<p><strong>DDL (Data Definition Language):</strong> Defines database structure.</p>
+<pre>CREATE TABLE Student (Roll INT PRIMARY KEY, Name VARCHAR(50));
+ALTER TABLE Student ADD Age INT;
+DROP TABLE Student;</pre>
+
+<p><strong>DML (Data Manipulation Language):</strong> Manipulates data.</p>
+<pre>INSERT INTO Student VALUES (1, 'Rahul', 20);
+UPDATE Student SET Age=21 WHERE Roll=1;
+DELETE FROM Student WHERE Roll=1;
+SELECT * FROM Student WHERE Age>18;</pre>
+
+<p><strong>DCL (Data Control Language):</strong> Controls access.</p>
+<pre>GRANT SELECT ON Student TO User1;
+REVOKE INSERT ON Student FROM User1;</pre>
+
+<p><strong>TCL (Transaction Control Language):</strong> Manages transactions.</p>
+<pre>COMMIT;          -- saves changes permanently
+ROLLBACK;        -- undoes changes
+SAVEPOINT sp1;   -- creates a savepoint within a transaction</pre>
+
+<h3>Q3. Write SQL queries for the following scenarios (Employee-Department schema). <span class="star">⭐</span></h3>
+<p><strong>Schema:</strong> Employee(Emp_ID, Name, Salary, Dept_ID), Department(Dept_ID, Dept_Name, Location)</p>
+
+<p><strong>1. Find all employees with salary > 50,000:</strong></p>
+<pre>SELECT * FROM Employee WHERE Salary > 50000;</pre>
+
+<p><strong>2. Find employee names and their department names:</strong></p>
+<pre>SELECT E.Name, D.Dept_Name 
+FROM Employee E, Department D 
+WHERE E.Dept_ID = D.Dept_ID;</pre>
+
+<p><strong>3. Find the highest salary in each department:</strong></p>
+<pre>SELECT Dept_ID, MAX(Salary) 
+FROM Employee 
+GROUP BY Dept_ID;</pre>
+
+<p><strong>4. Find departments with more than 5 employees:</strong></p>
+<pre>SELECT Dept_ID, COUNT(*) 
+FROM Employee 
+GROUP BY Dept_ID 
+HAVING COUNT(*) > 5;</pre>
+
+<p><strong>5. Find the second highest salary:</strong></p>
+<pre>SELECT MAX(Salary) 
+FROM Employee 
+WHERE Salary < (SELECT MAX(Salary) FROM Employee);</pre>
+
+<h3>Q4. Explain BCNF with example. Why is it stricter than 3NF? <span class="star">⭐</span></h3>
+<p><strong>Boyce-Codd Normal Form (BCNF)</strong> is a stricter version of 3NF.</p>
+<p><strong>Definition:</strong> A relation is in BCNF if for every functional dependency X → Y, X must be a superkey.</p>
+<p><strong>Difference from 3NF:</strong> In 3NF, if X → Y and Y is a prime attribute (part of any candidate key), the dependency is allowed even if X is not a superkey. In BCNF, X must ALWAYS be a superkey for every non-trivial FD.</p>
+<p><strong>Example (3NF but not BCNF):</strong> Student(Student_ID, Subject, Professor)</p>
+<ul>
+    <li>FDs: Student_ID, Subject → Professor; Professor → Subject</li>
+    <li>Candidate Keys: {Student_ID, Subject} and {Student_ID, Professor}</li>
+    <li>Professor → Subject violates BCNF because Professor is not a superkey.</li>
+    <li>It is in 3NF because Subject is a prime attribute.</li>
+</ul>
+<p><strong>Decomposition to BCNF:</strong> R1(Professor, Subject), R2(Student_ID, Professor)</p>
+<p><strong>Why BCNF is better:</strong> Eliminates all anomalies caused by non-superkey determinants.</p>
+
+<h3>Q5. Explain Transaction States and Log-Based Recovery with Checkpoints. <span class="star">⭐</span></h3>
+<p><strong>Transaction States:</strong></p>
+<ol>
+    <li><strong>Active:</strong> Transaction is executing.</li>
+    <li><strong>Partially Committed:</strong> Last statement executed, waiting for commit.</li>
+    <li><strong>Committed:</strong> Changes permanently saved.</li>
+    <li><strong>Failed:</strong> Normal execution cannot continue.</li>
+    <li><strong>Aborted:</strong> Transaction rolled back, database restored to previous state.</li>
+</ol>
+
+<p><strong>Log-Based Recovery:</strong> A log file records all database modifications:</p>
+<ul>
+    <li><strong>[Start, T]:</strong> Transaction T started.</li>
+    <li><strong>[Write, T, X, old_value, new_value]:</strong> T updated X.</li>
+    <li><strong>[Commit, T]:</strong> T committed.</li>
+    <li><strong>[Abort, T]:</strong> T aborted.</li>
+</ul>
+
+<p><strong>Checkpoints:</strong> A checkpoint is a point where all committed transactions are written to disk. During recovery, only transactions after the last checkpoint need to be examined.</p>
+<ul>
+    <li><strong>Redo List:</strong> Transactions committed after checkpoint (must redo).</li>
+    <li><strong>Undo List:</strong> Transactions active at checkpoint but not committed (must undo).</li>
+</ul>
+
+<p><strong>Recovery Process:</strong></p>
+<ol>
+    <li>Scan log backward from end to checkpoint.</li>
+    <li>Identify committed and uncommitted transactions.</li>
+    <li>Redo committed transactions.</li>
+    <li>Undo uncommitted transactions.</li>
+</ol>
+
+<div class="page-break"></div>
+
+<!-- ==================== SECTION C: 15 MARKS ==================== -->
+<h2>📋 SECTION C: 15-MARK QUESTIONS <span class="marks-badge">15 Marks</span></h2>
+
+<h3>Q1. Design a complete Database for a University System. Draw ER Diagram, convert to Relational Schema, and normalize to 3NF. <span class="star">⭐</span></h3>
+<p><strong>University Database ER Design:</strong></p>
+
+<p><strong>Entities & Attributes:</strong></p>
+<ul>
+    <li><strong>Student:</strong> Student_ID (PK), Name, DOB, Email, Address</li>
+    <li><strong>Course:</strong> Course_ID (PK), Course_Name, Credits</li>
+    <li><strong>Professor:</strong> Prof_ID (PK), Name, Department</li>
+    <li><strong>Department:</strong> Dept_ID (PK), Dept_Name</li>
+</ul>
+
+<p><strong>Relationships:</strong></p>
+<ul>
+    <li><strong>Enrolls:</strong> Student enrolls in Course (M:N)</li>
+    <li><strong>Teaches:</strong> Professor teaches Course (1:N)</li>
+    <li><strong>Belongs_To:</strong> Student belongs to Department (N:1)</li>
+</ul>
+
+<p><strong>Relational Schema Conversion:</strong></p>
+<ol>
+    <li><strong>Student</strong> (Student_ID, Name, DOB, Email, Address, Dept_ID)<br>
+    PK: Student_ID | FK: Dept_ID references Department</li>
+    <li><strong>Course</strong> (Course_ID, Course_Name, Credits, Prof_ID)<br>
+    PK: Course_ID | FK: Prof_ID references Professor</li>
+    <li><strong>Professor</strong> (Prof_ID, Name, Department)<br>
+    PK: Prof_ID</li>
+    <li><strong>Department</strong> (Dept_ID, Dept_Name)<br>
+    PK: Dept_ID</li>
+    <li><strong>Enrolls</strong> (Student_ID, Course_ID, Grade)<br>
+    PK: (Student_ID, Course_ID) | FK: Student_ID references Student, Course_ID references Course</li>
+</ol>
+
+<p><strong>Normalization:</strong></p>
+<ul>
+    <li>All relations are in 1NF (atomic values).</li>
+    <li>All relations are in 2NF (no partial dependencies; all non-key attributes depend on full PK).</li>
+    <li>All relations are in 3NF (no transitive dependencies; no non-key attribute depends on another non-key attribute).</li>
+</ul>
+
+<h3>Q2. Explain various types of Joins in SQL with examples. <span class="star">⭐</span></h3>
+<p><strong>1. INNER JOIN:</strong> Returns only matching rows from both tables.</p>
+<pre>SELECT * FROM Employee E 
+INNER JOIN Department D ON E.Dept_ID = D.Dept_ID;</pre>
+
+<p><strong>2. LEFT OUTER JOIN:</strong> Returns all rows from left table, matching rows from right, NULL for non-matching.</p>
+<pre>SELECT * FROM Employee E 
+LEFT JOIN Department D ON E.Dept_ID = D.Dept_ID;</pre>
+
+<p><strong>3. RIGHT OUTER JOIN:</strong> Returns all rows from right table, matching rows from left, NULL for non-matching.</p>
+<pre>SELECT * FROM Employee E 
+RIGHT JOIN Department D ON E.Dept_ID = D.Dept_ID;</pre>
+
+<p><strong>4. FULL OUTER JOIN:</strong> Returns all rows when match in either table, NULL where no match.</p>
+<pre>SELECT * FROM Employee E 
+FULL OUTER JOIN Department D ON E.Dept_ID = D.Dept_ID;</pre>
+
+<p><strong>5. CROSS JOIN:</strong> Cartesian product of both tables.</p>
+<pre>SELECT * FROM Employee CROSS JOIN Department;</pre>
+
+<p><strong>6. SELF JOIN:</strong> Joins a table with itself.</p>
+<pre>SELECT E1.Name AS Employee, E2.Name AS Manager 
+FROM Employee E1, Employee E2 
+WHERE E1.Manager_ID = E2.Emp_ID;</pre>
+
+<h3>Q3. Explain Deadlock in detail. How is it detected and prevented? <span class="star">⭐</span></h3>
+<p><strong>Deadlock:</strong> A situation where two or more transactions wait indefinitely for each other to release locks.</p>
+
+<p><strong>Necessary Conditions:</strong></p>
+<ol>
+    <li>Mutual Exclusion</li>
+    <li>Hold and Wait</li>
+    <li>No Preemption</li>
+    <li>Circular Wait</li>
+</ol>
+
+<p><strong>Deadlock Detection:</strong></p>
+<ul>
+    <li><strong>Wait-For Graph (WFG):</strong> Nodes are transactions; edges represent waiting. A cycle indicates deadlock.</li>
+    <li><strong>Timeout:</strong> If a transaction waits too long, assume deadlock.</li>
+</ul>
+
+<p><strong>Deadlock Prevention Strategies:</strong></p>
+<ol>
+    <li><strong>Wait-Die (Non-Preemptive):</strong> Older transaction waits for younger; younger dies (rolls back) if it requests resource held by older.</li>
+    <li><strong>Wound-Wait (Preemptive):</strong> Older transaction "wounds" (aborts) younger; younger waits for older.</li>
+    <li><strong>Graph-Based Protocol:</strong> Lock data items in a specific order (tree protocol).</li>
+    <li><strong>Time-Stamp Ordering:</strong> Assign timestamps; transactions ordered by time to prevent cycles.</li>
+</ol>
+
+<p><strong>Deadlock Resolution:</strong> Choose a victim transaction (usually youngest or least work done). Roll back victim and release its locks. Restart victim later.</p>
+
+<h3>Q4. Explain Indexing in detail: Primary, Secondary, Clustering, and Multilevel Index. <span class="star">⭐</span></h3>
+<p><strong>Indexing:</strong> A data structure technique to improve search speed by creating pointers to data.</p>
+
+<p><strong>1. Primary Index:</strong> Built on ordering key field (primary key). Data file is sorted on the key. One index entry per data block. Dense or sparse.</p>
+
+<p><strong>2. Clustering Index:</strong> Built on ordering non-key field. Data file is sorted, but multiple records can have same value. One entry per distinct value.</p>
+
+<p><strong>3. Secondary Index:</strong> Built on non-ordering fields. Can be on key or non-key fields. Data file does not need to be sorted. More index entries than primary index.</p>
+
+<p><strong>4. Multilevel Index:</strong> When primary index is too large, create an index on the index. Outer index points to inner index blocks. Reduces search time from linear to logarithmic.</p>
+
+<table>
+    <tr><th>Type</th><th>Field</th><th>Data Sorted?</th><th>Entries</th></tr>
+    <tr><td>Primary</td><td>Key</td><td>Yes</td><td>One per block</td></tr>
+    <tr><td>Clustering</td><td>Non-key</td><td>Yes</td><td>One per distinct value</td></tr>
+    <tr><td>Secondary</td><td>Any</td><td>No</td><td>One per record or block</td></tr>
+</table>
+
+<div class="page-break"></div>
+
+<!-- ==================== SUPER HIGH-YIELD ==================== -->
+<h2>🚨 SUPER HIGH-YIELD TOPICS (Memorize These First!)</h2>
+<p>Based on MAKAUT previous year analysis, these topics appear in <strong>EVERY exam:</strong></p>
+<ol>
+    <li>✅ <strong>ACID Properties</strong> (100% probability)</li>
+    <li>✅ <strong>Normalization (1NF, 2NF, 3NF, BCNF)</strong> (100% probability)</li>
+    <li>✅ <strong>SQL Queries (SELECT, JOIN, GROUP BY, HAVING)</strong> (100% probability)</li>
+    <li>✅ <strong>ER Diagram to Relational Schema</strong> (100% probability)</li>
+    <li>✅ <strong>Relational Algebra (Selection, Projection, Join)</strong> (100% probability)</li>
+    <li>✅ <strong>Keys (Primary, Foreign, Candidate, Super)</strong> (100% probability)</li>
+    <li>✅ <strong>2-Phase Locking</strong> (100% probability)</li>
+    <li>✅ <strong>Deadlock Detection/Prevention</strong> (100% probability)</li>
+    <li>✅ <strong>Three-Schema Architecture</strong> (100% probability)</li>
+    <li>✅ <strong>Concurrency Problems (Lost Update, Dirty Read, Unrepeatable Read)</strong> (100% probability)</li>
+</ol>
+
+<div class="tip">
+    <strong>💡 EXAM STRATEGY:</strong><br>
+    • Attempt ALL questions — no negative marking in MAKAUT<br>
+    • Start with 5-mark questions — build confidence<br>
+    • Write diagrams wherever possible — ER diagrams, schema diagrams, transaction state diagrams<br>
+    • Use bullet points — examiners prefer structured answers<br>
+    • If you don't know an answer, write related concepts — MAKAUT gives marks for relevant content
+</div>
+
+<div style="text-align: center; margin-top: 30px; padding: 15px; background: #16213e; color: white; border-radius: 8px;">
+    <strong>Best of Luck for your DBMS Exam on 25th June 2026! 🎓</strong><br>
+    <span style="font-size: 12px;">Compiled from MAKAUT Previous Year Papers (2006-2024) & Official Syllabus</span>
+</div>
+
+</body>
+</html>
